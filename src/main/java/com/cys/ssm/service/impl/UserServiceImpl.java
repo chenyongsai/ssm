@@ -30,6 +30,10 @@ public class UserServiceImpl implements IUserService {
     
     public List<User> getAllUser() {    
         return userDao.getAllUser();    
-    }    
+    }
+
+	public void updateById(User user) {
+		userDao.updateByPrimaryKey(user);    
+	}    
 
 }

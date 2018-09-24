@@ -32,19 +32,6 @@ public class UserController {
         return "userList";    
     }    
         
-    @RequestMapping("/showUser")    
-    public String showUser(HttpServletRequest request,Model model){    
-        int userId = Integer.parseInt(request.getParameter("id"));    
-        User user = userService.getUserById(userId);    
-        model.addAttribute("user", user);    
-        return "showUser";    
-    }    
-        
-    @RequestMapping("/addUserUI")    
-    public String addUserUI(){    
-        return "addUser";    
-    }    
-        
     @RequestMapping("/addUser")    
     public String addUser(HttpServletRequest request,Model model){    
         User user = new User();    
@@ -59,5 +46,11 @@ public class UserController {
     	User entity = userService.getUserById(user.getId());
     	model.addAttribute("user", entity);
 		return "userinfo";
+	}
+    
+    @RequestMapping("/updateUser")
+	public String updateUser(HttpServletRequest request, Model model,User user) {
+    	userService.updateById(user);
+    	return "redirect:/user/userList";    
 	}
 }

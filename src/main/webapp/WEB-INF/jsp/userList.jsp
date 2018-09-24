@@ -17,6 +17,7 @@
   <body>    
 		<table>
 			<thead>
+				<tr><td colspan="3"><a href="/user/toAdd">添加用户</a></tr>
 				<tr>
 					<td>用户</td>
 					<td>密码</td>

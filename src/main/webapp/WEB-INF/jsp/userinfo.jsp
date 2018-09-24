@@ -13,7 +13,11 @@
   </head>    
       
   <body>    
-       userName: <input id="name" name="name" value="${user.name}"/><br/>     
-       password: <input id="password" name="password" value="${user.password }"/><br/>    
+  	<form id="update" action="updateUser" method="post">
+  		<input name="id" value="${user.id }" type="hidden"/>
+       	userName: <input id="name" name="name" value="${user.name}"/><br/>     
+       	password: <input id="password" name="password" value="${user.password }"/><br/>
+       	<input type="submit" value="更新用户"/>      
+     </form>
   </body>    
 </html>     
