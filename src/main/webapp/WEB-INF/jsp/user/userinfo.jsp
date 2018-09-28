@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>    
+<%@ include file="../common/resources.jsp"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">    
 <html>
   <head>
@@ -17,7 +18,7 @@
   		<input name="id" value="${user.id }" type="hidden"/>
        	userName: <input id="name" name="name" value="${user.name}"/><br/>     
        	password: <input id="password" name="password" value="${user.password }"/><br/>
-       	<input type="submit" value="更新用户"/>      
+       	<input type="submit" class="btn btn-success" value="更新用户"/>      
      </form>
   </body>    
 </html>     
