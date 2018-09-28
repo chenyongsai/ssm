@@ -8,19 +8,19 @@ import com.cys.ssm.model.User;
 
 public interface IUserDao {
 
-	public User queryByPrimaryKey(Integer id);    
+	public User queryById(Integer id);    
     
-    public List<User> queryUserByBatch(Map<String,Object> params);    
+    public List<User> queryUserList(User user);    
         
     public void insertUser(User user);    
         
     public void insertUserByBatch(List<User> list);    
         
-    public void deleteByPrimaryKey(Integer id);    
+    public void deleteById(Integer id);    
         
     public void delteUserByBatch(Map<String,Object> params);    
         
-    public void updateByPrimaryKey(User user);
+    public void updateById(User user);
     
-    public List<User> getAllUser();    
+//    public List<User> getAllUser();    
 }

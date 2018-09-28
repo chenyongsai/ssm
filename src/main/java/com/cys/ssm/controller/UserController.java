@@ -22,35 +22,41 @@ public class UserController {
         
 	@RequestMapping("/toAdd")
 	public String toAdd(HttpServletRequest request, Model model) {
-		return "toAdd";
+		return "user/toAdd";
 	}
 	
     @RequestMapping("/userList")    
-    public String userList(HttpServletRequest request,Model model){    
-        List<User> uList = userService.getAllUser();    
+    public String userList(HttpServletRequest request,Model model,User user){    
+        List<User> uList = userService.getUserList(user);    
         model.addAttribute("uList", uList);    
-        return "userList";    
+        return "user/userList";    
     }    
         
     @RequestMapping("/addUser")    
-    public String addUser(HttpServletRequest request,Model model){    
-        User user = new User();    
-        user.setName(String.valueOf(request.getParameter("name")));    
-        user.setPassword(String.valueOf(request.getParameter("password")));    
+    public String addUser(HttpServletRequest request,Model model,User user){    
         userService.addUser(user);    
         return "redirect:/user/userList";    
     }    
     
     @RequestMapping("/userInfo")
 	public String userInfo(HttpServletRequest request, Model model,User user) {
-    	User entity = userService.getUserById(user.getId());
+    	User entity = userService.getUser(user.getId());
     	model.addAttribute("user", entity);
-		return "userinfo";
+		return "user/userinfo";
 	}
     
     @RequestMapping("/updateUser")
 	public String updateUser(HttpServletRequest request, Model model,User user) {
-    	userService.updateById(user);
+    	userService.updateUser(user);
     	return "redirect:/user/userList";    
 	}
+    
+    @RequestMapping("/deleteUser")    
+    public String deleteUser(HttpServletRequest request,Model model,User user){    
+        userService.deleteUser(user.getId());    
+        return "redirect:/user/userList";    
+    }    
+    
+    
+    
 }

@@ -12,7 +12,7 @@
 	</sql>
 
 	<!-- 查询用户 -->
-	<select id="queryByPrimaryKey" resultMap="BaseResultMap"
+	<select id="queryById" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
@@ -20,24 +20,22 @@
 		where id = #{id,jdbcType=INTEGER}
 	</select>
 
-	<!-- 查询用户 -->
-	<select id="getAllUser" resultMap="BaseResultMap">
-		select
-		<include refid="Base_Column_List" />
-		from user
-	</select>
-
 	<!-- 批量查询用户 -->
-	<select id="queryUserByBatch" resultMap="BaseResultMap"
-		parameterType="java.util.Map">
+	<select id="queryUserList" resultMap="BaseResultMap"
+		parameterType="com.cys.ssm.model.User">
 		select
 		<include refid="Base_Column_List" />
 		from user
-		where id in
-		<foreach collection="idList" item="userId" index="index"
-			open="(" separator="," close=")">
-			#{userId,jdbcType=DECIMAL}
-		</foreach>
+		where 1=1 
+		<if test="id != null">
+			and id = #{id,jdbcType=INTEGER} 
+		</if>
+		<if test="name != null">
+			and name = #{name,jdbcType=VARCHAR} 
+		</if>
+		<if test="password !=null">
+			and password = #{password,jdbcType=VARCHAR} 
+		</if>
 	</select>
 
 	<!-- 插入用户 -->
@@ -87,24 +85,29 @@
 	</insert>
 
 	<!-- 删除用户 -->
-	<delete id="deleteByPrimaryKey"
+	<delete id="deleteById"
 		parameterType="java.lang.Integer">
 		delete from user
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 
 	<!-- 批量删除用户 -->
-	<delete id="deleteUserByBatch" parameterType="java.util.Map">
+	<delete id="deleteUserByBatch" parameterType="com.cys.ssm.model.User">
 		delete from user
-		where id IN
-		<foreach item="ids" collection="iList" open="(" separator=","
-			close=")">
-			#{ids,jdbcType=DECIMAL}
-		</foreach>
+		where 1=1 
+		<if test="id != null">
+			and id = #{id,jdbcType=INTEGER} 
+		</if>
+		<if test="name != null">
+			and name = #{name,jdbcType=VARCHAR} 
+		</if>
+		<if test="password !=null">
+			and password = #{password,jdbcType=VARCHAR} 
+		</if>
 	</delete>
 
 	<!-- 更新用户 -->
-	<update id="updateByPrimaryKey" parameterType="com.cys.ssm.model.User">
+	<update id="updateById" parameterType="com.cys.ssm.model.User">
 		update user
 		<set>
 			<if test="name != null">

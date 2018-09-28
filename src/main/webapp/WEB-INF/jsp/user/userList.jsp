@@ -29,7 +29,10 @@
 					<tr>
 						<td>${ul.name }</td>
 						<td>${ul.password }</td>
-						<td><a href="/user/userInfo?id=${ul.id}">详情</a></td>
+						<td>
+							<a href="/user/userInfo?id=${ul.id}">详情</a>
+							<a href="/user/deleteUser?id=${ul.id}">删除</a>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
