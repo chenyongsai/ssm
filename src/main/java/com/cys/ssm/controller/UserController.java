@@ -22,7 +22,7 @@ public class UserController {
         
 	@RequestMapping("/toAdd")
 	public String toAdd(HttpServletRequest request, Model model) {
-		return "user/toAdd";
+		return "user/add";
 	}
 	
     @RequestMapping("/userList")    
@@ -42,7 +42,7 @@ public class UserController {
 	public String userInfo(HttpServletRequest request, Model model,User user) {
     	User entity = userService.getUser(user.getId());
     	model.addAttribute("user", entity);
-		return "user/userinfo";
+		return "user/userInfo";
 	}
     
     @RequestMapping("/updateUser")
