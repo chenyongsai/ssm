@@ -14,10 +14,16 @@
   </head>    
       
   <body>    
-    <form id="addUser" action="addUser" method="post">     
-        <span class="glyphicon glyphicon-user"></span> userName: <input type="text" id="name" name="name" placeholder="username" /><br/>     
-        <span class="glyphicon glyphicon-lock"></span> password: <input type="password" id="password" name="password" placeholder="Password" /><br/>    
-        <input type="submit" class="btn btn-success" value="添加新用户"/>     
-    </form>    
+  	<%@ include file="../common/top.jsp"%>
+  	<%@ include file="../common/list.jsp"%>
+  	<div style="float: left;width: 90%;" class="container" >
+	    <form id="addUser" action="addUser" method="post">     
+	        <span class="glyphicon glyphicon-user"></span>&nbsp&nbsp<input type="text" id="name" name="name" placeholder="username" /><br/>     
+	        <span class="glyphicon glyphicon-lock"></span>&nbsp&nbsp<input type="password" id="password" name="password" placeholder="Password" /><br/>    
+	        <br/>
+	        <input type="submit" class="btn btn-success" value="添加新用户"/>
+	        <input type="button" class="btn btn-success" onclick="javascript:history.back(-1);" value="返回">        
+	    </form>    
+    </div>
   </body>    
 </html>     

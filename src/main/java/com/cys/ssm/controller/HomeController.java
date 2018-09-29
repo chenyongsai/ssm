@@ -39,4 +39,10 @@ public class HomeController {
 			return "redirect:/home/toLogin";
 		}
 	}
+	
+	@RequestMapping("/list")
+	public String list(HttpServletRequest request, Model model) {
+		return "common/list";
+	}
+	
 }

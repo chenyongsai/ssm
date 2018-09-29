@@ -14,11 +14,17 @@
   </head>    
       
   <body>    
-  	<form id="update" action="updateUser" method="post">
-  		<input name="id" value="${user.id }" type="hidden"/>
-       	userName: <input id="name" name="name" value="${user.name}"/><br/>     
-       	password: <input id="password" name="password" value="${user.password }"/><br/>
-       	<input type="submit" class="btn btn-success" value="更新用户"/>      
-     </form>
+  	<%@ include file="../common/top.jsp"%>
+  	<%@ include file="../common/list.jsp"%>
+  	<div style="float: left;width: 90%;" class="container" >
+	  	<form id="update" action="updateUser" method="post">
+	  		<input name="id" value="${user.id }" type="hidden"/>
+	       	<span class="glyphicon glyphicon-user"></span>&nbsp&nbsp<input id="name" name="name" value="${user.name}"/><br/>     
+	       	<span class="glyphicon glyphicon-lock"></span>&nbsp&nbsp<input id="password" name="password" value="${user.password }"/><br/>
+	       	<br/>
+	       	<input type="submit" class="btn btn-success" value="更新用户"/> 
+	       	<input type="button" class="btn btn-success" onclick="javascript:history.back(-1);" value="返回">     
+	     </form>
+     </div>
   </body>    
 </html>     

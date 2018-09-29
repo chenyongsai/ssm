@@ -14,10 +14,14 @@
   </head>    
       
   <body>    
-    <form id="login" action="login" method="post">     
-        <span class="glyphicon glyphicon-user"></span> userName: <input type="text" id="name" name="name" placeholder="username" /><br/>     
-        <span class="glyphicon glyphicon-lock"></span> password: <input type="password" id="password" name="password" placeholder="Password" /><br/>    
-        <input type="submit" class="btn btn-success" value="login"/>     
-    </form>    
+  	<%@ include file="../common/top.jsp"%>
+  	<div class="container">
+	    <form id="login" action="login" method="post">    
+	        <span class="glyphicon glyphicon-user"></span>&nbsp&nbsp<input type="text" id="name" name="name" placeholder="username" /><br/>     
+	        <span class="glyphicon glyphicon-lock"></span>&nbsp&nbsp<input type="password" id="password" name="password" placeholder="Password" /><br/>    
+    	    <br/>
+    	    <input type="submit" class="btn btn-success" value="login"/>     
+	    </form>    
+    </div>
   </body>    
 </html>     
