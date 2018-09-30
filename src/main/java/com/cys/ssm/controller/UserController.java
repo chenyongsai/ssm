@@ -27,6 +27,7 @@ public class UserController {
 	
     @RequestMapping("/userList")    
     public String userList(HttpServletRequest request,Model model,User user){    
+    	model.addAttribute("showName", "1");
         List<User> uList = userService.getUserList(user);    
         model.addAttribute("uList", uList);    
         return "user/userList";    
@@ -57,6 +58,9 @@ public class UserController {
         return "redirect:/user/userList";    
     }    
     
-    
+    @RequestMapping("/index")
+	public String index(HttpServletRequest request, Model model) {
+		return "user/index";
+	}
     
 }

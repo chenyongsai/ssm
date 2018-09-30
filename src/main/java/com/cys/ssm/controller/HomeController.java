@@ -34,15 +34,10 @@ public class HomeController {
 	public String login(HttpServletRequest request, Model model,User user) {
 		List<User> userList = userService.getUserList(user);
 		if(userList!=null && userList.size()==1) {
-			return "redirect:/user/userList";
+			return "redirect:/user/index";
 		}else {
 			return "redirect:/home/toLogin";
 		}
-	}
-	
-	@RequestMapping("/list")
-	public String list(HttpServletRequest request, Model model) {
-		return "common/list";
 	}
 	
 }
