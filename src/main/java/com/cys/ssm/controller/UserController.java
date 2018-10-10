@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cys.ssm.model.User;
 import com.cys.ssm.service.IUserService;  
@@ -27,16 +28,15 @@ public class UserController {
 	
     @RequestMapping("/userList")    
     public String userList(HttpServletRequest request,Model model,User user){    
-    	model.addAttribute("showName", "1");
         List<User> uList = userService.getUserList(user);    
         model.addAttribute("uList", uList);    
         return "user/userList";    
     }    
         
-    @RequestMapping("/addUser")    
-    public String addUser(HttpServletRequest request,Model model,User user){    
-        userService.addUser(user);    
-        return "redirect:/user/userList";    
+    @RequestMapping("/addUser")
+    @ResponseBody
+    public void addUser(HttpServletRequest request,Model model,User user){    
+        userService.addUser(user);
     }    
     
     @RequestMapping("/userInfo")
@@ -47,15 +47,15 @@ public class UserController {
 	}
     
     @RequestMapping("/updateUser")
-	public String updateUser(HttpServletRequest request, Model model,User user) {
+    @ResponseBody
+	public void updateUser(HttpServletRequest request, Model model,User user) {
     	userService.updateUser(user);
-    	return "redirect:/user/userList";    
 	}
     
-    @RequestMapping("/deleteUser")    
-    public String deleteUser(HttpServletRequest request,Model model,User user){    
-        userService.deleteUser(user.getId());    
-        return "redirect:/user/userList";    
+    @RequestMapping("/deleteUser")
+    @ResponseBody
+    public void deleteUser(HttpServletRequest request,Model model,User user){    
+        userService.deleteUser(user.getId());
     }    
     
     @RequestMapping("/index")

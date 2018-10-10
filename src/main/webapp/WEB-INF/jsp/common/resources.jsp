@@ -12,3 +12,4 @@
 
 <script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<script type="text/javascript" src="https://origin2.jsdelivr.net/jquery.form/3.50/jquery.form.min.js" ></script>
