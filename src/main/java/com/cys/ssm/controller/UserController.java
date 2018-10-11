@@ -21,41 +21,41 @@ public class UserController {
 	@Resource    
     private IUserService userService;    
         
-	@RequestMapping("/toAdd")
-	public String toAdd(HttpServletRequest request, Model model) {
-		return "user/add";
+	@RequestMapping("/userAddJsp")
+	public String userAddJsp(HttpServletRequest request, Model model) {
+		return "user/userAdd";
 	}
 	
     @RequestMapping("/userList")    
     public String userList(HttpServletRequest request,Model model,User user){    
-        List<User> uList = userService.getUserList(user);    
+        List<User> uList = userService.getList(user);
         model.addAttribute("uList", uList);    
         return "user/userList";    
     }    
         
-    @RequestMapping("/addUser")
+    @RequestMapping("/userAdd")
     @ResponseBody
-    public void addUser(HttpServletRequest request,Model model,User user){    
-        userService.addUser(user);
+    public void userAdd(HttpServletRequest request,Model model,User user){    
+        userService.add(user);
     }    
     
     @RequestMapping("/userInfo")
 	public String userInfo(HttpServletRequest request, Model model,User user) {
-    	User entity = userService.getUser(user.getId());
+    	User entity = userService.get(user.getId());
     	model.addAttribute("user", entity);
 		return "user/userInfo";
 	}
     
-    @RequestMapping("/updateUser")
+    @RequestMapping("/userUpdate")
     @ResponseBody
-	public void updateUser(HttpServletRequest request, Model model,User user) {
-    	userService.updateUser(user);
+	public void userUpdate(HttpServletRequest request, Model model,User user) {
+    	userService.update(user);
 	}
     
-    @RequestMapping("/deleteUser")
+    @RequestMapping("/userDelete")
     @ResponseBody
-    public void deleteUser(HttpServletRequest request,Model model,User user){    
-        userService.deleteUser(user.getId());
+    public void userDelete(HttpServletRequest request,Model model,User user){    
+        userService.delete(user.getId());
     }    
     
     @RequestMapping("/index")

@@ -4,7 +4,7 @@
 <table class="table table-bordered table-hover" >
 	<thead>
 		<tr>
-			<td colspan="3"><a class="btn btn-success" onclick="requestUrl('/user/toAdd')">添加用户</a>
+			<td colspan="3"><a class="btn btn-success" onclick="requestUrl('/user/userAddJsp')">添加用户</a>
 		</tr>
 		<tr>
 			<td>用户</td>
@@ -32,7 +32,7 @@
 			return false;
 		}
 		$.ajax({
-            url : "/user/deleteUser",
+            url : "/user/userDelete",
             cache : false,
             data :{"id":userId},
             type : 'GET',

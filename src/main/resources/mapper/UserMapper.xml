@@ -21,7 +21,7 @@
 	</select>
 
 	<!-- 批量查询用户 -->
-	<select id="queryUserList" resultMap="BaseResultMap"
+	<select id="queryList" resultMap="BaseResultMap"
 		parameterType="com.cys.ssm.model.User">
 		select
 		<include refid="Base_Column_List" />
@@ -39,7 +39,7 @@
 	</select>
 
 	<!-- 插入用户 -->
-	<insert id="insertUser" parameterType="com.cys.ssm.model.User">
+	<insert id="insert" parameterType="com.cys.ssm.model.User">
 		insert into user
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -66,7 +66,7 @@
 	</insert>
 
 	<!-- 批量插入用户 -->
-	<insert id="insertUserByBatch" parameterType="java.util.List">
+	<insert id="insertByBatch" parameterType="java.util.List">
 		insert into USER
 		(ID,
 		NAME,
@@ -92,7 +92,7 @@
 	</delete>
 
 	<!-- 批量删除用户 -->
-	<delete id="deleteUserByBatch" parameterType="com.cys.ssm.model.User">
+	<delete id="deleteByBatch" parameterType="com.cys.ssm.model.User">
 		delete from user
 		where 1=1 
 		<if test="id != null">

@@ -6,13 +6,13 @@ import com.cys.ssm.model.User;
 
 public interface IUserService {
 
-	public List<User> getUserList(User user);
+	public List<User> getList(User user);
 	
-	public User getUser(int userId);
+	public User get(int userId);
 
-	public void addUser(User user);
+	public void add(User user);
 
-	public void updateUser(User user);
+	public void update(User user);
 	
-	public void deleteUser(int userId);
+	public void delete(int userId);
 }

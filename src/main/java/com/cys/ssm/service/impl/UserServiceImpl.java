@@ -16,24 +16,24 @@ public class UserServiceImpl implements IUserService {
 	@Resource    
     private IUserDao userDao;    
         
-	public List<User> getUserList(User user) {
-		return userDao.queryUserList(user);
+	public List<User> getList(User user) {
+		return userDao.queryList(user);
 	}
 
-	public User getUser(int userId) {
+	public User get(int userId) {
 		return userDao.queryById(userId);
 	}
 
-	public void updateUser(User user) {
+	public void update(User user) {
 		userDao.updateById(user);
 	}
 
-	public void deleteUser(int userId) {
+	public void delete(int userId) {
 		userDao.deleteById(userId);
 	}
 
-	public void addUser(User user) {
-		userDao.insertUser(user);
+	public void add(User user) {
+		userDao.insert(user);
 	}    
 
 }

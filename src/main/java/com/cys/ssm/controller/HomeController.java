@@ -32,7 +32,7 @@ public class HomeController {
 	
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, Model model,User user) {
-		List<User> userList = userService.getUserList(user);
+		List<User> userList = userService.getList(user);
 		if(userList!=null && userList.size()==1) {
 			return "redirect:/user/index";
 		}else {

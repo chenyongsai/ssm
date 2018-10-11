@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>    
 <%@ include file = "../common/resources.jsp" %>
 
-<form id="userFrom" action="/user/addUser" method="get">     
+<form id="userFrom" action="/user/userAdd" method="get">     
     <span class="glyphicon glyphicon-user"></span>&nbsp&nbsp<input type="text" id="name" name="name" placeholder="username" /><br/>     
     <span class="glyphicon glyphicon-lock"></span>&nbsp&nbsp<input type="password" id="password" name="password" placeholder="Password" /><br/>    
     <br/>
