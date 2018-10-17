@@ -6,10 +6,10 @@
 %>
 
 
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../bootstrap/css/bootstrap.min.css">
 
-<script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="../../../js/jquery-3.3.1.min.js"></script>
 
-<script type="text/javascript" src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../bootstrap/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="https://origin2.jsdelivr.net/jquery.form/3.50/jquery.form.min.js" ></script>
+<script type="text/javascript" src="../../../js/jquery-form.js" ></script>

@@ -7,6 +7,7 @@
 			<p class="btn btn-info btn-block" id="list-1" onclick="showList(1);">系统管理</p>
 			<div class="hidden" id="list-1-div">
 				<p class="btn btn-default btn-block btn-sm" onclick="active(this);requestUrl('/admin/urlControlList');">权限列表</p>
+				<p class="btn btn-default btn-block btn-sm" onclick="active(this);requestUrl('/admin/roleList');">角色列表</p>
 			</div>
 		</li>
 		<li>

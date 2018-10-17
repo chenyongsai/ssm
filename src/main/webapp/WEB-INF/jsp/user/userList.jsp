@@ -19,7 +19,7 @@
 				<td>${ul.password }</td>
 				<td>
 					<a class="btn btn-success btn-sm" onclick="requestUrl('/user/userInfo?id=${ul.id}')">详情</a>
-					<a class="btn btn-danger btn-sm" onclick="deleteUser('${ul.id}')">删除</a>
+					<a class="btn btn-danger btn-sm" onclick="del('${ul.id}')">删除</a>
 				</td>
 			</tr>
 		</c:forEach>
@@ -27,14 +27,14 @@
 </table>
 
 <script type="text/javascript">
-	function deleteUser(userId){
+	function del(id){
 		if(!confirm("确认删除吗")){
 			return false;
 		}
 		$.ajax({
             url : "/user/userDelete",
             cache : false,
-            data :{"id":userId},
+            data :{"id":id},
             type : 'GET',
             success : function(data) {
             	alert("删除成功!");
