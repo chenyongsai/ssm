@@ -10,8 +10,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cys.ssm.model.PageSource;
 import com.cys.ssm.model.User;
-import com.cys.ssm.service.IUserService;  
+import com.cys.ssm.service.IUserService;
+import com.cys.ssm.util.PageUtil;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;  
 
 
 @Controller    
@@ -31,7 +35,17 @@ public class UserController {
         List<User> uList = userService.getList(user);
         model.addAttribute("uList", uList);    
         return "user/userList";    
-    }    
+    }
+    
+    @RequestMapping("/userListPage")
+    public String userListPage(Model model,User user,PageSource ps)
+    {
+    	Page<User> page = PageHelper.startPage(ps.getPageNum(), ps.getPageSize());
+        List<User> uList = userService.getList(user);
+        model.addAttribute("uList", uList);    
+        PageUtil.setPage(model,page);
+        return "user/userListPage";
+    }
         
     @RequestMapping("/userAdd")
     @ResponseBody

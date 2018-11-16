@@ -13,6 +13,13 @@
 			<option value="1" <c:if test="${role.status==1 }">selected</c:if>>注销</option>
 		</select>
 		<br/>    
+		
+		<label>权限列表：</label><br/>
+		<c:forEach items="${urlControl}" var="obj">
+			<label><input type="checkbox" name="urlIds" value="${obj.id }" 
+			<c:if test="${obj.chooseFlag }">checked="checked"</c:if>/>${obj.name }</label>
+		</c:forEach>
+		<br/>
 	   	<input type="button" class="btn btn-success" value="更新角色" onclick="update()"/> 
 	   	<input type="button" class="btn btn-success" onclick="requestUrl('/admin/roleList')" value="返回">     
 	</form>

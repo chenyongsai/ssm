@@ -1,6 +1,7 @@
 package com.cys.ssm.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cys.ssm.model.Role;
@@ -89,15 +91,29 @@ public class AdminController {
     
     @RequestMapping("/roleInfo")
     public String roleInfo(HttpServletRequest request, Model model,Role role) {
-    	Role entity = roleService.get(role.getId());
-    	model.addAttribute("role", entity);
+    	Map<String, Object> roleAndUrlControl = roleService.getRoleAndUrlControl(role);
+    	model.addAttribute("role", roleAndUrlControl.get("role"));
+    	model.addAttribute("urlControl", roleAndUrlControl.get("urlControl"));
     	return "admin/roleInfo";
     }
     
     @RequestMapping("/roleUpdate")
     @ResponseBody
-    public void roleUpdate(HttpServletRequest request, Model model,Role role) {
-    	roleService.update(role);
+    public void roleUpdate(HttpServletRequest request, Model model,Role role,@RequestParam(value="urlIds",required = false) String[] urlIds) {
+    	
+    	StringBuffer sb = new StringBuffer();
+    	String ids = "";
+    	if(urlIds!=null && urlIds.length>0) {
+    		for(String id : urlIds) {
+    			sb.append(id).append(",");
+    		}
+    		if(sb.length()>0) {
+    			ids = sb.substring(0,sb.length()-1);
+    		}
+    	}
+    	role.setUrlIds(ids);
+    	
+    	roleService.updateRoleAndRoleUrl(role);
     }
     
     @RequestMapping("/roleDelete")

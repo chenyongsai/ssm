@@ -13,3 +13,7 @@
 <script type="text/javascript" src="../../../bootstrap/js/bootstrap.min.js"></script>
 
 <script type="text/javascript" src="../../../js/jquery-form.js" ></script>
+
+<script type="text/javascript" src="../../../js/jsConfig.js" ></script>
+
+<script type="text/javascript" src="../../../js/jquery.pagination.js" ></script>

@@ -1,5 +1,7 @@
 package com.cys.ssm.model;
 
+import java.util.List;
+
 public class UrlControl {
 	
 	private Integer id;
@@ -11,7 +13,21 @@ public class UrlControl {
 	
 	private String menuStr;
 	private String statusStr;
+	private List<String> ids;
+	private boolean chooseFlag;
 	
+	public boolean isChooseFlag() {
+		return chooseFlag;
+	}
+	public void setChooseFlag(boolean chooseFlag) {
+		this.chooseFlag = chooseFlag;
+	}
+	public List<String> getIds() {
+		return ids;
+	}
+	public void setIds(List<String> ids) {
+		this.ids = ids;
+	}
 	public String getStatusStr() {
 		return statusStr;
 	}

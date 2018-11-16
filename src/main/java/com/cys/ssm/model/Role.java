@@ -7,8 +7,14 @@ public class Role {
 	private Integer status;
 	
 	private String statusStr;
+	private String urlIds;
 	
-	
+	public String getUrlIds() {
+		return urlIds;
+	}
+	public void setUrlIds(String urlIds) {
+		this.urlIds = urlIds;
+	}
 	public String getStatusStr() {
 		return statusStr;
 	}

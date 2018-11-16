@@ -14,7 +14,7 @@
 		id, menu, name, url, status, orderBy
 	</sql>
 
-	<!-- 查询用户 -->
+	<!-- 查询用-->
 	<select id="queryById" resultMap="BaseResultMap"
 		parameterType="java.lang.Integer">
 		select
@@ -23,7 +23,7 @@
 		where id = #{id,jdbcType=INTEGER}
 	</select>
 
-	<!-- 批量查询用户 -->
+	<!-- 批量查询 -->
 	<select id="queryList" resultMap="BaseResultMap"
 		parameterType="com.cys.ssm.model.UrlControl">
 		select
@@ -48,9 +48,15 @@
 		<if test="orderBy != null">
 			and orderBy = #{orderBy,jdbcType=INTEGER} 
 		</if>
+		<if test="ids != null and ids.size() > 0">
+			and id in
+			<foreach collection="ids" item="obj" open="(" separator="," close=")">
+                #{obj}
+       		</foreach>  
+		</if>
 	</select>
 
-	<!-- 插入用户 -->
+	<!-- 插入 -->
 	<insert id="insert" parameterType="com.cys.ssm.model.UrlControl">
 		insert into urlControl
 		<trim prefix="(" suffix=")" suffixOverrides=",">
@@ -95,7 +101,7 @@
 		</trim>
 	</insert>
 
-	<!-- 批量插入用户 -->
+	<!-- 批量插入 -->
 	<insert id="insertByBatch" parameterType="java.util.List">
 		insert into urlControl
 		(id, menu, name, url, status, orderBy)
@@ -115,14 +121,14 @@
 		) A
 	</insert>
 
-	<!-- 删除用户 -->
+	<!-- 删除 -->
 	<delete id="deleteById"
 		parameterType="java.lang.Integer">
 		delete from urlControl
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 
-	<!-- 批量删除用户 -->
+	<!-- 批量删除 -->
 	<delete id="deleteByBatch" parameterType="com.cys.ssm.model.UrlControl">
 		delete from urlControl
 		where 1=1 
@@ -146,7 +152,7 @@
 		</if>
 	</delete>
 
-	<!-- 更新用户 -->
+	<!-- 更新 -->
 	<update id="updateById" parameterType="com.cys.ssm.model.UrlControl">
 		update urlControl
 		<set>

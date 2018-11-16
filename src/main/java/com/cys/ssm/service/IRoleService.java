@@ -1,6 +1,7 @@
 package com.cys.ssm.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.cys.ssm.model.Role;
 
@@ -15,4 +16,8 @@ public interface IRoleService {
 	public void update(Role role);
 	
 	public void delete(int id);
+	
+	public Map<String,Object> getRoleAndUrlControl(Role role);
+	
+	public void updateRoleAndRoleUrl(Role role);
 }
