@@ -38,6 +38,7 @@ public class UserController {
     }
     
     @RequestMapping("/userListPage")
+    @ResponseBody
     public String userListPage(Model model,User user,PageSource ps)
     {
     	Page<User> page = PageHelper.startPage(ps.getPageNum(), ps.getPageSize());

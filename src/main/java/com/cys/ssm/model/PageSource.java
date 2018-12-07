@@ -9,7 +9,7 @@ public class PageSource {
     /**
      * 页面大小
      */
-    private int pageSize = 1;
+    private int pageSize = 3;
     
 	public int getPageNum() {
 		return pageNum;

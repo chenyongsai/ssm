@@ -1,8 +1,8 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 
-<div style="float: left; width: 10%;">
+<div style="float: left; width: 10%;padding-left: 10px;">
 	<span class="btn btn-default btn-block">目录</span>
-	<ul style="list-style:none" class="navbar-default navbar-collapse collapse">
+	<ul style="list-style:none;padding-left: 0px;padding-right: 0px" class="navbar-default navbar-collapse collapse" >
 		<li>
 			<p class="btn btn-info btn-block" id="list-1" onclick="showList(1);">系统管理</p>
 			<div class="hidden" id="list-1-div">

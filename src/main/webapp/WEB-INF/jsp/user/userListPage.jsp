@@ -1,14 +1,17 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="../common/resources.jsp"%>
 
-<form id="ajaxForm" action="/user/userListPage">
+<form id="ajaxForm" action="/user/userListPage" method="get">
 <input type="hidden" name="pageNum" id="pageNum" value="${pageNum }"/>
 <input type="hidden" name="total" id="total" value="${pageTotal }"/>
 
 <table class="table table-bordered table-hover" >
 	<thead>
 		<tr>
-			<td colspan="3"><a class="btn btn-success" onclick="requestUrl('/user/userAddJsp')">添加用户</a>
+			<td colspan="3">用户名：<input type="text" id="name" name="name" placeholder="username" />
+			密码：<input type="text" id="text" name="text" placeholder="Password" />
+			<button class="btn btn-success" onclick="ajaxForm('/user/userListPage')">查询</button>
+			</td>
 		</tr>
 		<tr>
 			<td>用户</td>
@@ -50,4 +53,29 @@
             }
        });   
 	}
+	
+	function ajaxForm(url){
+		$("#ajaxForm").ajaxSubmit(function(data){
+			$("#content").html(data);
+// 			alert(data);
+// 			requestUrl(url);
+		});
+	}
+	
+// 	function ajaxForm(url){
+// 		 $.ajax({
+// 	         url : url,
+// 	         cache : false,
+// 	         type : 'GET',
+// 	         success : function(data) {
+// 	        	 $("#content").html(data);
+// 	         },
+// 	         error : function(error) {
+// 	              alert("页面获取有误！");
+// 	         }
+// 	    });       
+		
+// 	}
+	
+	
 </script>
