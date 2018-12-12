@@ -2,7 +2,7 @@
 -- 项目需要数据库创建的表
 
 -- 用户
-CREATE TABLE `user` (
+CREATE TABLE maven_ssm.`user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) DEFAULT NULL,
   `password` varchar(20) DEFAULT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COMMENT='用户';
 
 -- 权限
-CREATE TABLE `urlControl` (
+CREATE TABLE maven_ssm.`url_control` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `menu` VARCHAR(20) NOT NULL DEFAULT '' COMMENT '目录',
   `name` VARCHAR(255) NOT NULL DEFAULT '' COMMENT '名称',
@@ -21,7 +21,7 @@ CREATE TABLE `urlControl` (
 ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='权限';
 
 -- 角色
-CREATE TABLE `role` (
+CREATE TABLE maven_ssm.`role` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL DEFAULT '' COMMENT '名称',
   `status` INT(11) NOT NULL DEFAULT 0 COMMENT '状态：0=正常，1=注销',
@@ -29,11 +29,20 @@ CREATE TABLE `role` (
 ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='角色';
 
 -- 角色权限
-CREATE TABLE `roleUrlControl` (
+CREATE TABLE  maven_ssm.`role_url_control` (
   `roleId` INT(11) NOT NULL ,
   `urlControls` TEXT COMMENT='权限ID,使用","号隔开',
   PRIMARY KEY (`roleId`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='角色权限';
 
-
+-- 用户日志
+CREATE TABLE `user_log` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '自增ID',
+  `user_name` VARCHAR(11) NOT NULL COMMENT '用户',
+  `ip` VARCHAR(32) NOT NULL COMMENT '请求来源',
+  `url` VARCHAR(255) NOT NULL COMMENT '请求资源地址',
+  `params` TEXT COMMENT '请求参数',
+  `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '请求时间',
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='用户操作日志'
 
