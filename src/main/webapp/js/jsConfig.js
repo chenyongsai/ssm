@@ -30,7 +30,20 @@ function requestUrl(url){
               alert("页面获取有误！");
          }
     });       
-	
+}
+
+function ajaxForm(url){
+	$.ajax({
+         url : url,
+         data:$("#ajaxForm").serialize(),
+         type : 'GET',
+         success : function(data) {
+        	 $("#content").html(data);
+         },
+         error : function(error) {
+              alert("页面获取有误！");
+         }
+    });       
 }
 
 

@@ -38,11 +38,11 @@ public class UserController {
     }
     
     @RequestMapping("/userListPage")
-    @ResponseBody
     public String userListPage(Model model,User user,PageSource ps)
     {
     	Page<User> page = PageHelper.startPage(ps.getPageNum(), ps.getPageSize());
         List<User> uList = userService.getList(user);
+        model.addAttribute("user", user);    
         model.addAttribute("uList", uList);    
         PageUtil.setPage(model,page);
         return "user/userListPage";
