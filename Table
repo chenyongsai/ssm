@@ -16,7 +16,7 @@ CREATE TABLE maven_ssm.`url_control` (
   `name` VARCHAR(255) NOT NULL DEFAULT '' COMMENT '名称',
   `url` VARCHAR(255) NOT NULL DEFAULT '' COMMENT '路径',
   `status` INT(11) NOT NULL DEFAULT 0 COMMENT '状态：0=正常，1=注销',
-  `orderBy` INT(11) NOT NULL DEFAULT 0 COMMENT '排序',
+  `order_by` INT(11) NOT NULL DEFAULT 0 COMMENT '排序',
   PRIMARY KEY (`id`)
 ) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='权限';
 
@@ -30,9 +30,9 @@ CREATE TABLE maven_ssm.`role` (
 
 -- 角色权限
 CREATE TABLE  maven_ssm.`role_url_control` (
-  `roleId` INT(11) NOT NULL ,
-  `urlControls` TEXT COMMENT='权限ID,使用","号隔开',
-  PRIMARY KEY (`roleId`)
+  `role_id` INT(11) NOT NULL ,
+  `url_controls` TEXT COMMENT='权限ID,使用","号隔开',
+  PRIMARY KEY (`role_id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='角色权限';
 
 -- 用户日志

@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cys.ssm.dao.IRoleUrlControlDao">
 	<resultMap id="BaseResultMap" type="com.cys.ssm.model.RoleUrlControl">
-		<result column="roleId" property="roleId" jdbcType="INTEGER" />
-		<result column="urlControls" property="urlControls" jdbcType="VARCHAR" />
+		<result column="role_id" property="roleId" jdbcType="INTEGER" />
+		<result column="url_controls" property="urlControls" jdbcType="VARCHAR" />
 	</resultMap>
 
 	<sql id="Base_Column_List">
-		roleId, urlControls
+		role_id, url_controls
 	</sql>
 
 	<!-- 查询 -->
@@ -15,8 +15,8 @@
 		parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
-		from roleUrlControl
-		where roleId = #{roleId,jdbcType=INTEGER}
+		from role_url_control
+		where role_id = #{roleId,jdbcType=INTEGER}
 	</select>
 
 	<!-- 批量查询 -->
@@ -24,10 +24,10 @@
 		parameterType="com.cys.ssm.model.RoleUrlControl">
 		select
 		<include refid="Base_Column_List" />
-		from roleUrlControl
+		from role_url_control
 		where 1=1 
 		<if test="roleIds != null and roleIds.size() > 0">
-			and roleId in
+			and role_id in
 			<foreach collection="roleIds" item="obj" open="(" separator="," close=")">
                 #{obj}
        		</foreach>  
@@ -36,13 +36,13 @@
 
 	<!-- 插入 -->
 	<insert id="insert" parameterType="com.cys.ssm.model.RoleUrlControl">
-		insert into roleUrlControl
+		insert into role_url_control
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="roleId != null">
-				roleId,
+				role_id,
 			</if>
 			<if test="urlControls != null">
-				urlControls,
+				url_controls,
 			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -57,8 +57,8 @@
 
 	<!-- 批量插入 -->
 	<insert id="insertByBatch" parameterType="java.util.List">
-		insert into roleUrlControl
-		(roleId, urlControls)
+		insert into role_url_control
+		(role_id, url_controls)
 		select A.* from
 		(
 		<foreach collection="list" item="obj" index="index"
@@ -74,16 +74,16 @@
 	<!-- 删除 -->
 	<delete id="deleteById"
 		parameterType="java.lang.Integer">
-		delete from roleUrlControl
-		where roleId = #{roleId,jdbcType=INTEGER}
+		delete from role_url_control
+		where role_id = #{roleId,jdbcType=INTEGER}
 	</delete>
 
 	<!-- 批量删除 -->
 	<delete id="deleteByBatch" parameterType="com.cys.ssm.model.RoleUrlControl">
-		delete from roleUrlControl
+		delete from role_url_control
 		where 1=1 
 		<if test="roleIds != null and roleIds.size() > 0">
-			and roleId in
+			and role_id in
 			<foreach collection="roleIds" item="obj" open="(" separator="," close=")">
                 #{obj}
        		</foreach>  
@@ -92,13 +92,13 @@
 
 	<!-- 更新 -->
 	<update id="updateById" parameterType="com.cys.ssm.model.RoleUrlControl">
-		update roleUrlControl
+		update role_url_control
 		<set>
 			<if test="urlControls != null">
-				urlControls = #{urlControls,jdbcType=VARCHAR},
+				url_controls = #{urlControls,jdbcType=VARCHAR},
 			</if>
 		</set>
-		where roleId = #{roleId,jdbcType=INTEGER}
+		where role_id = #{roleId,jdbcType=INTEGER}
 	</update>
 
 </mapper>    

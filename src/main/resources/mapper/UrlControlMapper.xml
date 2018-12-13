@@ -7,11 +7,11 @@
 		<result column="name" property="name" jdbcType="VARCHAR" />
 		<result column="url" property="url" jdbcType="VARCHAR" />
 		<result column="status" property="status" jdbcType="INTEGER" />
-		<result column="orderBy" property="orderBy" jdbcType="INTEGER" />
+		<result column="order_by" property="orderBy" jdbcType="INTEGER" />
 	</resultMap>
 
 	<sql id="Base_Column_List">
-		id, menu, name, url, status, orderBy
+		id, menu, name, url, status, order_by
 	</sql>
 
 	<!-- 查询用-->
@@ -19,7 +19,7 @@
 		parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
-		from urlControl
+		from url_control
 		where id = #{id,jdbcType=INTEGER}
 	</select>
 
@@ -28,7 +28,7 @@
 		parameterType="com.cys.ssm.model.UrlControl">
 		select
 		<include refid="Base_Column_List" />
-		from urlControl
+		from url_control
 		where 1=1 
 		<if test="id != null">
 			and id = #{id,jdbcType=INTEGER} 
@@ -46,7 +46,7 @@
 			and status = #{status,jdbcType=INTEGER} 
 		</if>
 		<if test="orderBy != null">
-			and orderBy = #{orderBy,jdbcType=INTEGER} 
+			and order_by = #{orderBy,jdbcType=INTEGER} 
 		</if>
 		<if test="ids != null and ids.size() > 0">
 			and id in
@@ -58,7 +58,7 @@
 
 	<!-- 插入 -->
 	<insert id="insert" parameterType="com.cys.ssm.model.UrlControl">
-		insert into urlControl
+		insert into url_control
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
 				id,
@@ -76,7 +76,7 @@
 				status, 
 			</if>
 			<if test="orderBy != null">
-				orderBy,
+				order_by,
 			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -103,8 +103,8 @@
 
 	<!-- 批量插入 -->
 	<insert id="insertByBatch" parameterType="java.util.List">
-		insert into urlControl
-		(id, menu, name, url, status, orderBy)
+		insert into url_control
+		(id, menu, name, url, status, order_by)
 		select A.* from
 		(
 		<foreach collection="list" item="obj" index="index"
@@ -124,13 +124,13 @@
 	<!-- 删除 -->
 	<delete id="deleteById"
 		parameterType="java.lang.Integer">
-		delete from urlControl
+		delete from url_control
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 
 	<!-- 批量删除 -->
 	<delete id="deleteByBatch" parameterType="com.cys.ssm.model.UrlControl">
-		delete from urlControl
+		delete from url_control
 		where 1=1 
 		<if test="id != null">
 			and id = #{id,jdbcType=INTEGER} 
@@ -148,13 +148,13 @@
 			and status = #{status,jdbcType=INTEGER} 
 		</if>
 		<if test="orderBy != null">
-			and orderBy = #{orderBy,jdbcType=INTEGER} 
+			and order_by = #{orderBy,jdbcType=INTEGER} 
 		</if>
 	</delete>
 
 	<!-- 更新 -->
 	<update id="updateById" parameterType="com.cys.ssm.model.UrlControl">
-		update urlControl
+		update url_control
 		<set>
 			<if test="menu !=null">
 				menu = #{menu,jdbcType=VARCHAR}, 
@@ -169,7 +169,7 @@
 				status = #{status,jdbcType=INTEGER},
 			</if>
 			<if test="orderBy != null">
-				orderBy = #{orderBy,jdbcType=INTEGER},
+				order_by = #{orderBy,jdbcType=INTEGER},
 			</if>
 		</set>
 		where id = #{id,jdbcType=INTEGER}
