@@ -4,7 +4,7 @@
 <table class="table table-bordered table-hover" >
 	<thead>
 		<tr>
-			<td colspan="6"><a class="btn btn-success" onclick="requestUrl('/admin/roleAddJsp')">添加权限</a>
+			<td colspan="6"><a class="btn btn-success" onclick="requestUrl('/admin/roleAddJsp')">添加角色</a>
 		</tr>
 		<tr>
 			<td>名称</td>
