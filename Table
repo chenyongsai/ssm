@@ -4,10 +4,10 @@
 -- 用户
 CREATE TABLE maven_ssm.`user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(20) DEFAULT NULL,
-  `password` varchar(20) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL COMMENT '用户名',
+  `password` varchar(20) DEFAULT NULL COMMENT '密码',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COMMENT='用户';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户';
 
 -- 权限
 CREATE TABLE maven_ssm.`url_control` (
@@ -44,5 +44,5 @@ CREATE TABLE `user_log` (
   `params` TEXT COMMENT '请求参数',
   `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '请求时间',
   PRIMARY KEY (`id`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='用户操作日志'
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='用户操作日志';
 

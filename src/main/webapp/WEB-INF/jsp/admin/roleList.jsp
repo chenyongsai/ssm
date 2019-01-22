@@ -4,7 +4,7 @@
 <table class="table table-bordered table-hover" >
 	<thead>
 		<tr>
-			<td colspan="6"><a class="btn btn-success" onclick="requestUrl('/admin/roleAddJsp')">添加角色</a>
+			<td colspan="6"><a class="btn btn-success" onclick="requestUrl('${path}/admin/roleAddJsp')">添加角色</a>
 		</tr>
 		<tr>
 			<td>名称</td>
@@ -18,7 +18,7 @@
 				<td>${obj.name }</td>
 				<td>${obj.statusStr }</td>
 				<td>
-					<a class="btn btn-success btn-sm" onclick="requestUrl('/admin/roleInfo?id=${obj.id}')">详情</a>
+					<a class="btn btn-success btn-sm" onclick="requestUrl('${path}/admin/roleInfo?id=${obj.id}')">详情</a>
 					<a class="btn btn-danger btn-sm" onclick="del('${obj.id}')">删除</a>
 				</td>
 			</tr>
@@ -32,13 +32,13 @@
 			return false;
 		}
 		$.ajax({
-            url : "/admin/roleDelete",
+            url : "${path}/admin/roleDelete",
             cache : false,
             data :{"id":id},
             type : 'GET',
             success : function(data) {
             	alert("删除成功!");
-		    	requestUrl("/admin/roleList");
+		    	requestUrl("${path}/admin/roleList");
             },
             error : function(error) {
                  alert("页面获取有误！");
