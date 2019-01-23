@@ -2,8 +2,7 @@
 <%@ include file="../common/resources.jsp"%>
 
 <form id="ajaxForm" action="${path}/user/userListPage">
-<input type="hidden" name="pageNum" id="pageNum" value="${pageNum }"/>
-<input type="hidden" name="total" id="total" value="${pageTotal }"/>
+<input type="hidden" name="pageNum" id="pageNum" value="1"/>
 
 <table class="table table-bordered table-hover" >
 	<thead>

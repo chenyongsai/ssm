@@ -20,7 +20,7 @@ public class CommonInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)throws Exception {
-		log.info("URL="+request.getRequestURL().toString()+(request.getQueryString()!=null?request.getQueryString():""));
+		log.info("URL="+request.getRequestURL().toString()+"?"+(request.getQueryString()!=null?request.getQueryString():""));
 		addUserLog(request);
 		
 		String path = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
